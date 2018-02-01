@@ -37,23 +37,6 @@ var friends = [
   }, 
 
   {
-    "name":"Tiffany Haddish",
-    "photo":"https://peopledotcom.files.wordpress.com/2017/07/tiffany-haddish.jpg",
-    "scores":[
-        4,
-        5,
-        2,
-        4,
-        5,
-        4,
-        3,
-        5,
-        4,
-        2
-      ]
-  }, 
-
-  {
     "name":"Denzel Wishington",
     "photo":"https://pixel.nymag.com/imgs/daily/vulture/2016/09/22/22-denzel-washington.w710.h473.2x.jpg",
     "scores":[

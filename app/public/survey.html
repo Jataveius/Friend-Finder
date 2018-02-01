@@ -112,7 +112,7 @@
 		<h3>Question 6</h3>
 		<h4> The person who reads too much and uses his brain too little will fall into lazy habits of thinking.</h4>
 		<div class="form-group">
-			<select name="quest5" id="quest5">
+			<select name="quest6" id="quest6">
 				<option value="">Select an Option</option>
 				<option value="1">1 (Strongly Disagree)</option>
 				<option value="2">2</option>
@@ -125,7 +125,7 @@
         <h3>Question 7</h3>
 		<h4> I’d rather live with a good question than a bad answer.</h4>
 		<div class="form-group">
-			<select name="quest5" id="quest5">
+			<select name="quest7" id="quest7">
 				<option value="">Select an Option</option>
 				<option value="1">1 (Strongly Disagree)</option>
 				<option value="2">2</option>
@@ -137,7 +137,7 @@
         <h3>Question 8</h3>
 		<h4> I have made this letter longer than usual because I lack the time to make it shorter.</h4>
 		<div class="form-group">
-			<select name="quest5" id="quest5">
+			<select name="quest8" id="quest8">
 				<option value="">Select an Option</option>
 				<option value="1">1 (Strongly Disagree)</option>
 				<option value="2">2</option>
@@ -149,7 +149,7 @@
         <h3>Question 9</h3>
 		<h4> Better to write for yourself and have no public, than to write for the public and have no self.</h4>
 		<div class="form-group">
-			<select name="quest5" id="quest5">
+			<select name="quest9" id="quest9">
 				<option value="">Select an Option</option>
 				<option value="1">1 (Strongly Disagree)</option>
 				<option value="2">2</option>
@@ -161,7 +161,7 @@
         <h3>Question 10</h3>
 		<h4> Never be afraid to laugh at yourself, after all, you could be missing out on the joke of the century.</h4>
 		<div class="form-group">
-			<select name="quest5" id="quest5">
+			<select name="quest10" id="quest10">
 				<option value="">Select an Option</option>
 				<option value="1">1 (Strongly Disagree)</option>
 				<option value="2">2</option>
@@ -199,14 +199,19 @@ $('#submit').on('click', () => {
 	let ans3 = $('#quest3').val().trim();
 	let ans4 = $('#quest4').val().trim();
 	let ans5 = $('#quest5').val().trim();
+	let ans6 = $('#quest6').val().trim();
+	let ans7 = $('#quest7').val().trim();
+	let ans8 = $('#quest8').val().trim();
+	let ans9 = $('#quest9').val().trim();
+	let ans10 = $('#quest10').val().trim();
 
-	if (userName === "" || imag === "" || ans1 === "" || ans2 === "" || ans3 === "" || ans4 === "" || ans5 === "") {
+	if (userName === "" || imag === "" || ans1 === "" || ans2 === "" || ans3 === "" || ans4 === "" || ans5 === "" || ans6 === "" || ans7 === "" || ans8 === "" || ans9 === "" || ans10 === "" ) {
 		alert("Please fill in all fields");	
 	} else {
 		newUser = {
 			name: userName,
 			photo: imag,
-			scores: [ans1, ans2, ans3, ans4, ans5]
+			scores: [ans1, ans2, ans3, ans4, ans5, ans6, ans7, ans8, ans9, ans10, ]
 		};
 
 		findFriend(newUser.scores);
@@ -224,6 +229,11 @@ $('#submit').on('click', () => {
 		$('#quest3').val("");
 		$('#quest4').val("");
 		$('#quest5').val("");
+		$('#quest6').val("");
+		$('#quest7').val("");
+		$('#quest8').val("");
+		$('#quest9').val("");
+		$('#quest10').val("");
 	}
 });
 
@@ -254,12 +264,12 @@ function calcScoreDiff(user, friend) {
 	let diff = 0;
 	let count = 0;
 
-	for (var i = 0; i < 5; i++) {
+	for (var i = 0; i < 10; i++) {
 		diff += Math.abs(user[i] - friend.scores[i]);
 		count++;
 	}
 
-	if (count === 5) {
+	if (count === 10) {
 		if (diff < bestFriend.diff) {
 			bestFriend.diff = diff;
 			bestFriend.name = friend.name;
